@@ -1,5 +1,6 @@
 body {
 	margin:0 auto;
+  background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
 }
 
 .clearfix::after {
