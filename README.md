@@ -1,13 +1,29 @@
 # GroupProject1
 
-project title
+As of Wed, Jan. 10, 2018
 
-team members
+-project title-
+"Find Me A Cup" ???
 
-project description
+-team members-
+Emren
+Tonye
+Kadiro
+Ben
 
-sketch of final product
+-project description-
+Helps you find coffee shops near where you are and then gives you information pulled from multiple 
+review sites. Also shows a map of shops in the nearby area. 
 
-APIs to be used
+-sketch of final product-
 
-rough breakdown of tasks
+-APIs to be used-
+google maps
+yelp
+open weather maps
+
+-rough breakdown of tasks-
+tonye - html and framework layout
+ben - basic api calls
+emren - firebase
+kadiro - framework research
