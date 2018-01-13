@@ -1,13 +1,40 @@
+var pos;
 var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 44.9778, lng: -93.2650},
-          zoom: 10
+          zoom: 12
         });
-        infoWindow = new google.maps.InfoWindow;
+        infoWindow = new google.maps.InfoWindow();
         marker = new google.maps.Marker({
           map: map
         })
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: pos,
+          radius: 500,
+          type: ['coffee shop']
+        }, callback);
+      };
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      };
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      };
 
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
@@ -26,8 +53,7 @@ var map, infoWindow;
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
+        };
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -36,3 +62,5 @@ var map, infoWindow;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
+
+
