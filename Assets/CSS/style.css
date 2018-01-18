@@ -1,26 +1,37 @@
 body {
-	margin:0 auto;
-  background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
+ margin:0 auto;
+ background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
 }
 
 .clearfix::after {
-	content: "";
-	display:block;
-	clear:both;
+ content: "";
+ display:block;
+ clear:both;
 }
 
 .brown {
-  background-color:#e1d3cd !important;
+ background-color:#e1d3cd !important;
+}
+
+/* Search Field */
+.dropdown-content li>span {
+ padding: 0 16px;
+}
+.input-field.col .dropdown-content [type="checkbox"]+label {
+ padding: 0 0 30px 30px;
+}
+.select-wrapper input.select-dropdown {
+ color:#26a69a;
 }
 
 #mapContainer {
-  border: 1px solid #00a098;
-  padding:20px;
+ border: 1px solid #00a098;
+ padding:20px;
 }
- /* Always set the map height explicitly to define the size of the div
-  * element that contains the map. */
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
 #map {
-  min-height:500px;
-  height: 100%;
-  width: 100%;
+ min-height:500px;
+ height: 100%;
+ width: 100%;
 }
