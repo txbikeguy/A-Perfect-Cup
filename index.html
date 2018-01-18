@@ -2,68 +2,102 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Find Me A Cup</title>
-  	<link rel="stylesheet" type="text/css" href="Assets/CSS/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Perfect Cup</title>
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" type="text/css" href="Assets/CSS/reset.css">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Materialize Icon Set -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
 
-  <!-- Compiled and minified CSS for Materialize -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!-- Always have a Favicon -->
-  <link rel="shortcut icon" href="Assets/Images/cup.ico" type="image/x-icon">
+    <!-- Always have a Favicon -->
+    <link rel="shortcut icon" href="Assets/Images/cup.ico" type="image/x-icon">
 
-  <!-- Firebase database -->
-  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <!-- Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
+    <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+    </script>
   </head>
   <body>
+
 <!-- Header -->
-  	<header>
+  	<header class="section col s12 m12 l12 xl12">
       <div class="row">
         <div class="col s12 m4 l4 center-align">
           <p>About Us</p></div>
         <div class="col s12 m4 l4 center-align">
-          <div id="logo">logo</div>
+          <div id="logo"><a href="index.html"><img src="Assets/Images/logo.png" /></a></div>
         </div>
         <div class="col s12 m4 l4 center-align">
-          <p>Leave Us Your Feedback</p></div>
-      </div>
-  	</header>
-<!-- Search Menu -->
-      <div class="row">
-        <div class="col s12">
-         <div class="card-panel brown lighten-2">Search Para</div>
+          <p><a href="feedback.html">Leave Us Your Feedback</a></p>
         </div>
       </div>
-<!-- Main Section --> 
+  	</header>
+    <!-- Search Menu -->
+    <div class="row">
+        <div class="col s12">
+         <div class="card-panel brown ">
+          <form class="col s12 m12 l12 xl12">
+            <div class="row">
+              <div class="input-field col s12 m6 l2 xl2">
+                <input id="yourLocation" type="text" class="validate">
+                <label for="yourLocation">Location</label>
+              </div>
+              <div class="input-field col s12 m6 l2 xl2">
+                <input id="distance" type="text" class="validate">
+                <label for="distance">Distance</label>
+              </div>
+              <div class="input-field col s12 m6 l2 xl2">
+                <select multiple>
+                  <option value="1">Open Now<i class="material-icons tiny">access_time</i></option>
+                  <option value="2">Outdoor Seating<i class="material-icons tiny">local_florist</i></option>
+                  <option value="3">Good for Groups<i class="material-icons tiny">group</i></option>
+                  <option value="4">Wheelchair Accessible<i class="material-icons tiny">accessible</i></option>
+                  <option value="5">Alcohol Available<i class="material-icons tiny">local_bar</i></option>
+                  <option value="6">Food Available<i class="material-icons tiny">local_dining</i></option>
+                  <option value="7">Parking<i class="material-icons tiny">directions_car</i></option>
+                  <option value="8">WiFi<i class="material-icons tiny">wifi</i></option>
+                </select>
+                <label>Amenities</label>
+              </div>
+              <div class="input-field col s12 m6 l2 xl2">
+                <input id="rating" type="text" class="validate">
+                <label for="rating">Rating</label>
+              </div>
+              <div class="col s12 m6 l2 xl2">
+                <input class="btn waves-effect waves-light" type="submit" value="Submit" id="submit">
+              </div>
+            </div>
+          </form> 
+          <div class="clearfix"></div>
+         </div>
+        </div>
+      </div>
+
+
+      <!-- Main Section --> 
       <div class="row">
         <div class="col s12 m6 l7 center-align">
-          <div class="card-panel brown lighten-2" style="border: 2px solid #00a098;">
-            <center><div id="map"></div></center>
+          <div  id="mapContainer" class="card-panel white">
+            <div id="map"></div>
           </div>
         </div>
         <div class="col s12 m6 l5 center-align">
-          <div class="card-panel brown lighten-2">
-            <section id="search" style="border: 2px solid #00a098;
-    outline: #e1d3cd  solid thick;">
+          <div class="card-panel brown">
+            <section id="search" style="border: 2px solid #00a098;outline: #e1d3cd solid thick;">
               Find your perfect cup!
-              <form>
-                <h3>Location</h3>
-                <input type="text" name="location" id="location">
 
-                <h3>Distance</h3>
-                <input type="text" name="distance" id="distance">
-                
-                <h3>Amenities</h3>
-                <input type="text" name="amenities" id="amenities">
-
-                <h3>Atmosphere</h3>
-                <input type="text" name="atmosphere" id="atmosphere">
-
-                <h3>Stars</h3>
-                <input type="text" name="rating" id="rating">
-
-                <input type="submit" value="Search" id="search">
-              </form> 
             </section>
 
             <section id="mainResults">
@@ -85,6 +119,9 @@
     <!-- Google API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCjIgTt1g9A5RbibI7lN8vsHSlbsnj0rI&callback=initMap&libraries=places">
     </script>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!-- Custom Script -->
     <script src="Assets/Javascript/app.js"></script>
