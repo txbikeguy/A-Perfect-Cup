@@ -1,5 +1,6 @@
 var pos;
 var map, infoWindow;
+
       function initMap() {
 
         if (navigator.geolocation) {
@@ -24,7 +25,6 @@ var map, infoWindow;
             map.setCenter(pos);
             
               var service = new google.maps.places.PlacesService(map);
-              debugger;
               service.nearbySearch({
                 location: pos,
                 radius: 500,
@@ -58,7 +58,15 @@ var map, infoWindow;
           infowindow.setContent(place.name);
           infowindow.open(map, this);
         });
+        google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(map, this);
+            });
       };
+
+      
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -71,3 +79,7 @@ var map, infoWindow;
   
 
 
+// Drop-down menu 
+$(document).ready(function() {
+      $('select').material_select();
+    });
