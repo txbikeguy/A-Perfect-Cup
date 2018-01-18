@@ -1,26 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>feebback</title>
+	<title>Feedback</title>
+
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/reset.css">
+  <link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+
+  <!-- Compiled and minified CSS for Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Always have a Favicon -->
+  <link rel="shortcut icon" href="Assets/Images/cup.ico" type="image/x-icon">
+
+  <!-- Firebase database -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
 </head>
 <body>
+<!-- Header -->
+    <header>
+      <div class="row">
+        <div class="col s12 m4 l4 center-align">
+          <p>About Us</p></div>
+        <div class="col s12 m4 l4 center-align">
+          <div id="logo">logo</div>
+        </div>
+        <div class="col s12 m4 l4 center-align">
+          <p><a href="feedback.html">Leave Us Your Feedback</a></p></div>
+      </div>
+    </header>
+<!-- Form -->
+  <div class="row">
+    <div class="col s12">
+       <div class="card-panel brown lighten-2">
+        
 
-<form action="/action_page.php">
-  Name:<br>
-  <input type="text" name="firstname" placeholder="John Doe"><br><br>
-
-  Email: <br>
-  <input type="text" name="email" placeholder="johndoe@gmail.com">
-  <br><br>
-
-  Feedback:<br>
-  <textarea id="feebback" name="feebback" placeholder="Write something.." style="height:200px"></textarea>
-  <br><br>
-
-
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="FirstName" id="firstInput" type="text">
+          <label for="first_name" class="active">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="LastName" id="lastInput" type="text">
+          <label for="last_name" class="active">Last Name</label>
+        </div>
+      </div>
+   </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="johnDoe@gmail.con" id="" type="email">
+          <label for="email" class="active">Email</label>
+        </div>
+      </div>
+      <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <textarea placeholder="Feedback Area" id="feedbackInput" class="materialize-textarea"></textarea>
+            <label for="textarea1" class="active">Feedback</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  <button id="feedbackSubmit" class="btn waves-effect waves-light" type="submit" name="action">Submit
+  </button>
+    </form>
+  </div>
+         
+       </div>
+    </div>
+  </div>
 
 
 
