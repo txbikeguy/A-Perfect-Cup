@@ -1,37 +1,282 @@
 body {
- margin:0 auto;
- background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
+  margin:0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight:400;
+  color:#6b2504;
+  background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
+  max-width:1500px;
 }
 
 .clearfix::after {
- content: "";
- display:block;
- clear:both;
+  content: "";
+    display:block;
+   clear:both;
 }
 
 .brown {
- background-color:#e1d3cd !important;
+  background-color:#e1d3cd !important;
 }
 
-/* Search Field */
+/* Header */
+header {
+  position:relative;
+  margin:0 0 50px 0;
+}
+#logo {
+  width:33%;
+}
+#logo img {
+  width:33%;
+  max-width:418px;
+}
+.headerLinkLeft a, .headerLinkRight a {
+  font-size:20px;
+  color:#6b2504;
+  line-height:1.4;
+}
+.headerLinkLeft {
+  width:33%;
+  position:absolute;
+  top:30%;
+  left:0px;
+}
+.headerLinkRight {
+  width:33%;
+  position:absolute;
+  top:30%;
+}
+nav {
+  display:none;
+}
+
+/* Search Form */
+.row .searchForm {
+  margin:20px 0 0 0;
+}
+.row .searchForm .col {
+  padding:0 20px;
+}
 .dropdown-content li>span {
- padding: 0 16px;
+  padding:0 16px;
 }
 .input-field.col .dropdown-content [type="checkbox"]+label {
- padding: 0 0 30px 30px;
+  padding:0 0 30px 30px;
 }
 .select-wrapper input.select-dropdown {
- color:#26a69a;
+  color:#26a69a;
+}
+input[type=text].valid:not(.browser-default) {
+  border-bottom:1px solid #00a098;
+  box-shadow:0 1px 0 0 #00a098;
+}
+.input-field label {
+  color:#00a098;
+  padding-left:10px;
+}
+#searchTitle {
+  position:relative;
+  height:70px;
+}
+.searchTitle1 {
+  font-size:36px;
+  position: absolute;
+  top:-5px;
+  left:10px;
+}
+.searchTitle2 {
+  font-family: 'Rouge Script', cursive;
+  font-size:60px;
+  text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
+  position: absolute;
+  top:14px;
+  left:23px;
 }
 
+/* Map */
 #mapContainer {
- border: 1px solid #00a098;
- padding:20px;
+  border:1px solid #00a098;
+  padding:20px;
 }
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
+
 #map {
- min-height:500px;
- height: 100%;
- width: 100%;
+  min-height:500px;
+  height:100%;
+  width:100%;
+}
+
+/* Results */
+#mainResults {
+  background: #e1d3cd;
+  position: relative;
+  border: 2px solid #00a098;
+}
+#mainResults:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  right: -7px;
+  bottom: -7px;
+  background: #ffffff;
+  z-index: -1;
+}
+#mainResults:before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: #e1d3cd;
+  z-index: -100;
+}
+#mainResults.card-panel {
+  transition:none;
+  box-shadow:none;
+}
+#resultsTitle {
+  position:relative;
+  height:110px;
+  border-bottom:2px solid #00a098;
+  margin:0 0 15px 0;
+}
+.resultsTitle1 {
+  font-family: 'Rouge Script', cursive;
+  font-size:140px;
+  color:#00a098;
+  text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
+  position: absolute;
+  top:-50px;
+  left:30%;
+}
+.resultsTitle2 {
+  font-size:50px;
+  position: absolute;
+  top:50px;
+  left:24.5%;
+}
+#resultsPagnation {
+  font-size:20px;
+  font-weight:300;
+  margin:0 0 20px 0;
+}
+#resultsOf {
+  width:50%;
+  float:left;
+}
+#numResults {
+  font-weight:700;
+}
+#resultPages {
+  width:50%;
+  text-align:right;
+  float:right;
+}
+
+/* Mobile */
+@media (max-width: 599px) { 
+  #navLrg {
+    display:none;
+  }
+  nav {
+    display:block;
+    background-color:#ffffff;
+    height:120px;
+    margin:0 0 20px 0;
+  }
+  nav.brand-logo {
+    padding-top:10px;
+  }
+  #dropdown1 {
+    width:100%;
+    min-width:160px;
+    top:120px !important;
+    border-top:1px solid #00a098;
+  }
+  ul.left {
+    height:120px;
+    background-color:#00a098;
+  }
+  nav i.material-icons {
+    line-height:120px;
+  }
+  i.right {
+    margin:0px;
+  }
+  /* Results */
+  .row #resultsContainer.col.s12 {
+    width:94%;
+    margin:12px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) { 
+  /* Results */
+  .row #resultsContainer.col.m12 {
+    width:97%;
+    margin:12px;
+  }
+  .resultsTitle1 {
+    left:40%;
+  }
+  .resultsTitle2 {
+    left:37%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  /* Header Links */
+  .headerLinkLeft a, .headerLinkRight a {
+    font-size:30px;
+  }
+  /* Search */
+  .searchTitle1 {
+    font-size:30px;
+  }
+  .searchTitle2 {
+    font-size:41px;
+  }
+  /* Results */ 
+  .row #resultsContainer.col.l5 {
+    max-width:39%;
+    margin:12px;
+  }
+  .resultsTitle1 {
+    left:30%;
+  }
+  .resultsTitle2 {
+    left:24.5%;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1350px) { 
+  /* Search */
+.searchTitle1 {
+  font-size:36px;
+}
+.searchTitle2 {
+  font-size:60px;
+}
+  /* Results */ 
+  .row #resultsContainer.col.xl5 {
+    max-width:39%;
+    margin:12px;
+  }
+  #resultsTitle {
+    height:160px;
+  }
+  .resultsTitle1 {
+    font-size:200px;
+    top:-70px;
+    left:27%;
+  }
+  .resultsTitle2 {
+    font-size:70px;
+    top:70px;
+    left:21%;
+  }
+
 }
