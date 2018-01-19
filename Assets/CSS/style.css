@@ -6,13 +6,16 @@ body {
   background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
   max-width:1500px;
 }
-
+.script {
+  font-family: 'Rouge Script', cursive;
+  text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
+  font-size:80px;
+}
 .clearfix::after {
   content: "";
     display:block;
    clear:both;
 }
-
 .brown {
   background-color:#e1d3cd !important;
 }
@@ -69,7 +72,7 @@ input[type=text].valid:not(.browser-default) {
   border-bottom:1px solid #00a098;
   box-shadow:0 1px 0 0 #00a098;
 }
-.input-field label {
+#yourLocation label {
   color:#00a098;
   padding-left:10px;
 }
@@ -84,7 +87,6 @@ input[type=text].valid:not(.browser-default) {
   left:10px;
 }
 .searchTitle2 {
-  font-family: 'Rouge Script', cursive;
   font-size:60px;
   text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
   position: absolute;
@@ -93,7 +95,7 @@ input[type=text].valid:not(.browser-default) {
 }
 
 /* Map */
-#mapContainer {
+#mapContainer, #feedbackContainer {
   border:1px solid #00a098;
   padding:20px;
 }
@@ -141,7 +143,6 @@ input[type=text].valid:not(.browser-default) {
   margin:0 0 15px 0;
 }
 .resultsTitle1 {
-  font-family: 'Rouge Script', cursive;
   font-size:140px;
   color:#00a098;
   text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
@@ -171,6 +172,40 @@ input[type=text].valid:not(.browser-default) {
   width:50%;
   text-align:right;
   float:right;
+}
+
+/* Feedback Page */
+#feedbackTitle {
+  border-bottom:2px solid #00a098;
+  padding-bottom:10px;
+}
+#feedbackForm {
+  margin-top:20px;
+}
+#stayConnectedTitle h4 {
+  margin-top:0px;
+}
+#contactUs, #socialMedia {
+  margin:20px 0;
+  border-bottom:1px solid #6b2504;
+  padding:0 0 20px 0;
+}
+#contactUs h4.greenLrg {
+  font-size:60px;
+  color:#00a098;
+}
+#contactUs h5 {
+  font-size:20px;
+}
+.socialButton {
+  float:left;
+  margin:5px 15px;
+}
+#us {
+  margin:15px 0 0 0;
+}
+#us .chip {
+  margin: 0 10px;
 }
 
 /* Mobile */

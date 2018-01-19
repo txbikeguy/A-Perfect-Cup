@@ -9,9 +9,6 @@
 <!-- Materialize CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-<!-- Materialize Icon Set -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Rouge+Script" rel="stylesheet">
 
@@ -20,6 +17,9 @@
 
 <!-- Always have a Favicon -->
 <link rel="shortcut icon" href="Assets/Images/cup.ico" type="image/x-icon">
+
+<!-- Font Awesome Icon Set -->
+<script src="https://use.fontawesome.com/3e40addba5.js"></script>
 
 <!-- Firebase database -->
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
@@ -58,29 +58,33 @@
 
 <!-- Form -->
 <div class="row">
-  <div class="col s12 m12 l7 xl7">
-    <div class="card-panel brown ">
-      <form class="col s12 m12 l12 xl12">
+  <div class="col s12 m6 l7 xl7">
+    <div id="feedbackContainer" class="card-panel white">
+      <div id="feedbackTitle">
+        <h4 class="center-align">How are we doing?</h4>
+        <h5 class="center-align">Send us your feedback&mdash;good or bad&mdash;it's all welcome!</h5>
+      </div>
+      <form id="feedbackForm" class="col s12">
         <div class="row">
-          <div class="input-field col s12 m12 l6 xl6">
+          <div class="input-field col s12">
             <input id="name" type="text" class="validate">
             <label for="name">Name</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12 m12 l6 xl6">
+          <div class="input-field col s12">
             <input id="email" type="email" class="validate">
             <label for="email">Email Address</label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12 m12 l6 xl6">
+          <div class="input-field col s12">
             <textarea id="feedback" type="text" class="materialize-textarea"></textarea>
             <label for="feedback">Feeback</label>
           </div>
         </div>
         <div class="row">
-          <div class="col s12 m12 l2 xl2">
+          <div class="col s12">
             <button class="btn waves-effect waves-light right" type="submit" id="submit">send</button>
           </div>
         </div>
@@ -88,8 +92,46 @@
       <div class="clearfix"></div>
     </div>
   </div>
-  <div class="col s12 m12 l5 xl5">
-    <h3>Stay Connected</h3>
+  <div class="col s12 m6 l5 xl5">
+    <div id="stayConnected" class="card-panel brown">
+      <h4 class="script center-align">Stay Connected</h4>
+      <h6 class="center-align">Drop us a line, check out what has been happening, or just do a bit of creeping...we won't tell</h6>
+      <div id="contactUs">
+        <div id="address">
+          <h4 class="greenLrg script">a perfect cup</h4>
+          <h5>555 East Espresso Lane<br />Saint Paul, Minnesota 55555</h5>
+          <h5>(651) 555-3333</h5>
+        </div>
+      </div>
+      <div id="socialMedia">
+        <h4 class="left">Follow us</h4>
+        <a href="#"><button class="socialButton waves-effect waves-light btn-large btn-floating"><i class="fa fa-facebook" aria-hidden="true"></i></button></a>
+        <a href="#"><button class="socialButton socialButton waves-effect waves-light btn-large btn-floating"><i class="fa fa-twitter" aria-hidden="true"></i></button></a>
+        <a href="#"><button class="socialButton waves-effect waves-light btn-large btn-floating"><i class="fa fa-instagram" aria-hidden="true"></i></button></a>
+      <div class="clearfix"></div>
+      </div>
+      <div id="developers">
+        <h4>Who we are <span style="font-size:1rem;">(and yes, we <i class="fa fa-heart" aria-hidden="true"></i> coffee, too!)</span></h4>
+        <div id="us">
+          <div class="chip">
+            <img src="Assets/Images/img_ben.jpg" alt="Contact Person">
+            Ben
+          </div>
+          <div class="chip">
+            <img src="Assets/Images/img_emren.jpg" alt="Contact Person">
+            Emren
+          </div>
+          <div class="chip">
+            <img src="Assets/Images/img_kadiro.jpg" alt="Contact Person">
+            Kadiro
+          </div>
+          <div class="chip">
+            <img src="Assets/Images/img_tonye.jpg" alt="Contact Person">
+            Tonye
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
