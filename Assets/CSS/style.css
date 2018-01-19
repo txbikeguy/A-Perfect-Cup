@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight:400;
   color:#6b2504;
-  background:url('../images/bkg_coffeeBeans.jpg') repeat top left;
+  background:url('../Images/bkg_coffeeBeans.jpg') repeat top left;
   max-width:1500px;
 }
 .script {
