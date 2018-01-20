@@ -58,16 +58,16 @@ var map, infoWindow;
           position: place.geometry.location
         });
 
-        $("#result").append("<div id='places'><strong>" + place.name + "</strong><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br>")
+        $("#result").append("<div id='places'><h5><strong>" + place.name + "</strong></h5><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br><hr>")
 
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
           infoWindow.open(map, this);
         });
         google.maps.event.addListener(marker, 'click', function() {
-              infoWindow.setContent("<div><br><strong>" + place.name + "</strong><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
-                place.vicinity + "</a><br>" +
-                place.rating + " Stars" + "</div>");
+              infoWindow.setContent("<div><h5><strong>" + place.name + "</strong></h5><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
+                place.vicinity + "</a><br><strong>" +
+                place.rating + " Stars" + "</strong></div>");
               infoWindow.open(map, this);
             });
       };
