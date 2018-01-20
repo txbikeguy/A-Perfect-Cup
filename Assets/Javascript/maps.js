@@ -1,3 +1,5 @@
+
+
 var pos;
 var map, infoWindow;
 
@@ -26,9 +28,10 @@ var map, infoWindow;
             
               var service = new google.maps.places.PlacesService(map);
               service.nearbySearch({
+                keyword: "coffee shop",
                 location: pos,
-                radius: 500,
-                type: ['bar']
+                radius: 2500,
+                
               }, callback);
 
           }, function() {
@@ -48,6 +51,7 @@ var map, infoWindow;
         }
       };
       function createMarker(place) {
+        console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
@@ -55,14 +59,14 @@ var map, infoWindow;
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
         });
         google.maps.event.addListener(marker, 'click', function() {
-              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                'Place ID: ' + place.place_id + '<br>' +
-                place.formatted_address + '</div>');
-              infowindow.open(map, this);
+              infoWindow.setContent('<div><br><strong>' + place.name + '</strong><br>' +
+                place.vicinity + '<br>' +
+                place.rating + ' Stars' + '</div>');
+              infoWindow.open(map, this);
             });
       };
 
