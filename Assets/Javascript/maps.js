@@ -51,21 +51,23 @@ var map, infoWindow;
         }
       };
       function createMarker(place) {
-        console.log(place);
+        //console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
         });
 
+        $("#result").append("<div id='places'><strong>" + place.name + "</strong><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br>")
+
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
           infoWindow.open(map, this);
         });
         google.maps.event.addListener(marker, 'click', function() {
-              infoWindow.setContent('<div><br><strong>' + place.name + '</strong><br>' +
-                place.vicinity + '<br>' +
-                place.rating + ' Stars' + '</div>');
+              infoWindow.setContent("<div><br><strong>" + place.name + "</strong><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
+                place.vicinity + "</a><br>" +
+                place.rating + " Stars" + "</div>");
               infoWindow.open(map, this);
             });
       };
