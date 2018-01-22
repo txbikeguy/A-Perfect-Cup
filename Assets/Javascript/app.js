@@ -82,7 +82,6 @@ $(document).ready(function() {
 
 });
 
-=======
 
   // Email input validation 
 
@@ -168,4 +167,3 @@ $(document).ready(function() {
 
 
   
-    });
