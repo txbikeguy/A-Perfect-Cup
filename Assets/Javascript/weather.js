@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function(event) {
 
 // get location button functionality
-$("#get-weather-btn").click(function(event){
+$(window).on("load", function(event){
 	event.preventDefault();
 	$("#location-lat-long").val("Finding location. Please wait...");
 	// check if browser supports the geolocation api
