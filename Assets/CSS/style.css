@@ -104,6 +104,11 @@ input[type=text].valid:not(.browser-default) {
   height:100%;
   width:100%;
 }
+/* Weather */
+.weatherTitle {
+  font-size: 100px;
+  color:#00a098;
+}
 
 /* Results */
 #mainResults {
