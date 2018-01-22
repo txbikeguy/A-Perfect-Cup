@@ -1,6 +1,3 @@
-
-
-var pos;
 var map, infoWindow;
 
       function initMap() {
@@ -28,10 +25,9 @@ var map, infoWindow;
             
               var service = new google.maps.places.PlacesService(map);
               service.nearbySearch({
+                rankBy: google.maps.places.RankBy.DISTANCE,
                 keyword: "coffee shop",
-                location: pos,
-                radius: 2500,
-                
+                location: pos,                
               }, callback);
 
           }, function() {
@@ -41,7 +37,16 @@ var map, infoWindow;
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         };
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
       };
+    };
 
       function callback(results, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -51,7 +56,7 @@ var map, infoWindow;
         }
       };
       function createMarker(place) {
-        //console.log(place);
+        console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
@@ -74,10 +79,4 @@ var map, infoWindow;
 
       
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      };
+      
