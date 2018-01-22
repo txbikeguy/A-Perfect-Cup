@@ -159,16 +159,3 @@ searchData.ref().on("value", function(snapshot) {
 
 });
 
-
-
-
-
-// Drop-down menu 
-
-      $('select').material_select();
-    });
-
-    
-
-
-    
