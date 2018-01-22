@@ -18,9 +18,6 @@ function success(position) {
 	var latitude		= position.coords.latitude;							// set latitude variable
 	var longitude		= position.coords.longitude;						// set longitude variable
 	
-	var latLongResponse	= 'Latitude: ' + latitude + ' / Longitude: ' + longitude;	// build string containing lat/long
-	$("#location-lat-long").html(latLongResponse);							// write lat/long string to input field
-	
 	getWeather(latitude,longitude);											// get weather for the lat/long
 }
 
@@ -66,6 +63,7 @@ function getWeather(latitude,longitude) {
 			
 			console.log(data);												// log weather data for reference (json format) 
 			$("#weather").html(response);									// write current weather to textarea
+			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
 		});
 	} else {
 		return false;														// respond w/error if no address entered
