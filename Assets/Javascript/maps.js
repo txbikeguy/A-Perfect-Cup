@@ -80,7 +80,6 @@ searchData.ref().on("value", function(snapshot) {
 
 //Google Maps API
 
-var pos;
 var map, infoWindow;
 
       function initMap() {
@@ -108,10 +107,9 @@ var map, infoWindow;
             
               var service = new google.maps.places.PlacesService(map);
               service.nearbySearch({
+                rankBy: google.maps.places.RankBy.DISTANCE,
                 keyword: "coffee shop",
-                location: pos,
-                radius: 2500,
-                
+                location: pos,                
               }, callback);
 
           }, function() {
@@ -121,37 +119,6 @@ var map, infoWindow;
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         };
-      };
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
-      };
-      function createMarker(place) {
-        //console.log(place);
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-
-        $("#result").append("<div id='places'><strong>" + place.name + "</strong><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br>")
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infoWindow.setContent(place.name);
-          infoWindow.open(map, this);
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-              infoWindow.setContent("<div><br><strong>" + place.name + "</strong><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
-                place.vicinity + "</a><br>" +
-                place.rating + " Stars" + "</div>");
-              infoWindow.open(map, this);
-            });
-      };
-
       
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -161,3 +128,37 @@ var map, infoWindow;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       };
+    };
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      };
+      function createMarker(place) {
+        console.log(place);
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        $("#result").append("<div id='places'><h5><strong>" + place.name + "</strong></h5><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br><hr>")
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+              infoWindow.setContent("<div><h5><strong>" + place.name + "</strong></h5><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
+                place.vicinity + "</a><br><strong>" +
+                place.rating + " Stars" + "</strong></div>");
+              infoWindow.open(map, this);
+            });
+      };
+
+      
+
+      
