@@ -25,25 +25,17 @@ function success(position) {
 // function to get weather for an address
 function getWeather(latitude,longitude) {
 	if(latitude != '' && longitude != '') {
-		$("#weather").val("Retrieving weather...");										// write temporary response while we get the weather
-		$.getJSON( "http://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=imperial&APPID=43ae0f269ab5e7d4ac4efa288be62552", function(data) {	// add '&units=imperial' to get U.S. measurements
+		$.getJSON( "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=imperial&APPID=43ae0f269ab5e7d4ac4efa288be62552", function(data) {	// add '&units=imperial' to get U.S. measurements
 			var currWeather					= new Array();								// create array to hold our weather response data
 			currWeather['currTemp']			= Math.round(data.main.temp);				// current temperature
 			currWeather['highTemp']			= Math.round(data.main.temp_max);			// today's high temp
 			currWeather['lowTemp']			= Math.round(data.main.temp_min);			// today's low temp
+			currWeather['sunrise']			= data.sys.sunrise;
+			currWeather['senset']			= data.sys.sunset;
 			
 			currWeather['description']		= data.weather[0].description;				// short text description (ie. rain, sunny, etc.)
 			currWeather['icon']				= "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
 			currWeather['windSpeed']		= Math.round(data.wind.speed);				// wind speed
-			
-			currWeather['windDegree']		= data.wind.deg;							// wind direction (in degrees)
-			currWeather['windCompass']		= Math.round((currWeather['windDegree'] -11.25) / 22.5);	// wind direction (compass value)
-			
-			// array of direction (compass) names
-			var windNames					= new Array("North","North Northeast","Northeast","East Northeast","East","East Southeast", "Southeast", "South Southeast","South","South Southwest","Southwest","West Southwest","West","West Northwest","Northwest","North Northwest");
-
-			currWeather['windDirection']	= windNames[currWeather['windCompass']];	// convert degrees and find wind direction name
-			
 			
 			var response 		= "It is currently "+currWeather['currTemp']+"\xB0 and "+currWeather['description'];
 			
@@ -55,15 +47,25 @@ function getWeather(latitude,longitude) {
 					response		+= " miles per hour";
 				}
 			}
-			var response2 = "<br><br>The high for today is " + currWeather['highTemp'] + "\xB0 and the low tonight will be " + currWeather['lowTemp'] + "\xB0"; 
+			var response2 = "<br><br>The high for today is " + currWeather['highTemp'] + "\xB0"; 
 			var response3 = "<img src='" + currWeather['icon'] + "'>";
 
 			
-			console.log(data);												// log weather data for reference (json format) 
 			$("#weather").html(response);									// write current weather to textarea
 			$("#weather").append(response2);
 			$("#icon").append(response3);
 			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
+
+			var sunrise = moment.unix(currWeather['sunrise']).format('mm:ss A');
+			var sunset = moment.unix(currWeather['sunset']).format('mm:ss A');
+
+			var response4 = "<br><br>Sunrise Today: " + sunrise;
+			var response5 = "<br>Sunset Today: " + sunset;
+
+			$("#weather").html(response4);
+			$("#weather").html(response5);
+
+			console.log(data);												// log weather data for reference (json format) 
 		});
 	} else {
 		return false;														// respond w/error if no address entered
