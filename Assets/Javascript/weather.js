@@ -62,8 +62,8 @@ function getWeather(latitude,longitude) {
 			var response4 = "<br><br>Sunrise Today: " + sunrise;
 			var response5 = "<br>Sunset Today: " + sunset;
 
-			$("#weather").html(response4);
-			$("#weather").html(response5);
+			$("#weather").append(response4);
+			$("#weather").append(response5);
 
 			console.log(data);												// log weather data for reference (json format) 
 		});
