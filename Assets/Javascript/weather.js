@@ -56,8 +56,8 @@ function getWeather(latitude,longitude) {
 			$("#icon").append(response3);
 			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
 
-			var sunrise = moment.unix(currWeather['sunrise']).format('mm:ss A');
-			var sunset = moment.unix(currWeather['sunset']).format('mm:ss A');
+			var sunrise = moment.unix(currWeather['sunrise']).format('hh:mm A');
+			var sunset = moment.unix(currWeather['sunset']).format('hh:mm A');
 
 			var response4 = "<br><br>Sunrise Today: " + sunrise;
 			var response5 = "<br>Sunset Today: " + sunset;
