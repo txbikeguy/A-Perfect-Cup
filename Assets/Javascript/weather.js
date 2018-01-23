@@ -34,7 +34,7 @@ function getWeather(latitude,longitude) {
 			currWeather['sunset']			= data.sys.sunset;
 			
 			currWeather['description']		= data.weather[0].description;				// short text description (ie. rain, sunny, etc.)
-			currWeather['icon']				= "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
+			currWeather['icon']				= "https://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
 			currWeather['windSpeed']		= Math.round(data.wind.speed);				// wind speed
 			
 			var response 		= "It is currently "+currWeather['currTemp']+"\xB0 and "+currWeather['description'];
