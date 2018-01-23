@@ -65,7 +65,7 @@ function getWeather(latitude,longitude) {
 			$("#weather").append(response4);
 			$("#weather").append(response5);
 
-			console.log(data);												// log weather data for reference (json format) 
+			//console.log(data);												// log weather data for reference (json format) 
 		});
 	} else {
 		return false;														// respond w/error if no address entered

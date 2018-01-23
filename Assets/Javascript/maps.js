@@ -138,7 +138,7 @@ var map, infoWindow;
         }
       };
       function createMarker(place) {
-        console.log(place);
+        //console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
