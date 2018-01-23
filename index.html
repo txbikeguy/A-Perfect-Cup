@@ -23,6 +23,9 @@
 <!-- Always have a Favicon -->
 <link rel="shortcut icon" href="Assets/Images/cup.ico" type="image/x-icon">
 
+<!-- Font Awesome Icon Set -->
+<script src="https://use.fontawesome.com/3e40addba5.js"></script>
+
 <!-- Firebase database -->
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 </head>
@@ -61,9 +64,21 @@
 
   <!-- Search Menu -->
   <div class="row">
-    <div class="col s12">
-      <div class="card-panel brown ">
-        <form class="col s12 m12 l12 xl12">
+    <div class="col s0 m0 l0 xl2"></div>
+    <div class="col s12 m12 l12 xl8 ">
+      <div class="card-panel brown">
+  <!-- Weather Display -->
+        <div class="weatherLocation">
+          <span class="weatherTitle script">Your Weather</span>
+          <br />
+          <h5>Location: <span id="location-lat-long"></span></h5>
+        </div>
+        <div class="weatherInfo">
+          <h5 id="icon">Weather:</h5>
+          <p id="weather"></p>
+        </div>
+
+        <!-- <form class="col s12 m12 l12 xl12">
           <div class="row searchForm">
             <div id="searchTitle" class="col s12 m12 l2 xl2">
               <span class="searchTitle1">Find your</span><br /><span class="searchTitle2 script">perfect cup</span>
@@ -81,7 +96,6 @@
                 <option value="10miles">10 miles</option>
                 <option value="15miles">15 miles</option>
                 <option value="gt15miles">> 15 miles</option>
-              <!-- <label for="distance">Distance</label> -->
               </select>
             </div>
             <div class="input-field col s12 m6 l3 xl3">
@@ -96,16 +110,16 @@
                 <option value="parking">Parking</option>
                 <option value="wifi">WiFi</option>
               </select>
-              <!-- <label>Amenities</label> -->
             </div>
             <div class="col s12 m6 l2 xl2">
               <button class="btn waves-effect waves-light right" type="submit" id="submit"><i class="material-icons right">search</i>search </button>
             </div>
           </div>
-        </form>
+        </form> -->
         <div class="clearfix"></div>
       </div>
     </div>
+    <div class="col s0 m0 l0 xl2"></div>
   </div>
 
   <div class="row">
@@ -114,26 +128,6 @@
       <div  id="mapContainer" class="card-panel white">
         <div id="map"></div>
       </div>
-  <!-- Weather Display -->
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="card-panel brown">
-         
-              <span class="weatherTitle script">Weather</span>
-            <hr />
-              <div class="panel-heading">
-               <h5>Location</h5>
-              </div>
-            <div class="panel-body">
-              <p id="location-lat-long"></p>
-                  <h5 id="icon">Weather:</h5>
-              <p id="weather" class=""></p>
-            </div>
-        </div>
-      </div>
-    </div>
-
-
     </div>
   <!-- Search Results -->
     <div id="resultsContainer" class="col s12 m12 l5 xl5">

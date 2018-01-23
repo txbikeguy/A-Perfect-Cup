@@ -47,20 +47,20 @@ function getWeather(latitude,longitude) {
 					response		+= " miles per hour";
 				}
 			}
-			var response2 = "<br><br>The high for today is " + currWeather['highTemp'] + "\xB0"; 
+			var response2 = "<span class='highTemperature'>The high for today is " + currWeather['highTemp'] + "\xB0" + '</span>'; 
 			var response3 = "<img src='" + currWeather['icon'] + "'>";
 
 			
 			$("#weather").html(response);									// write current weather to textarea
 			$("#weather").append(response2);
 			$("#icon").append(response3);
-			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
+			$("#location-lat-long").html("<strong>" + data.name + "</strong><span class='latLong'>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon + "</span>")
 
 			var sunrise = moment.unix(currWeather['sunrise']).format('h:mm A');
 			var sunset = moment.unix(currWeather['sunset']).format('h:mm A');
 
-			var response4 = "<br><br>Sunrise Today: " + sunrise;
-			var response5 = "<br>Sunset Today: " + sunset;
+			var response4 = "<span class='sunUp'><i class='fa fa-sun-o' aria-hidden='true'></i> Sunrise Today: " + sunrise + '</span>';
+			var response5 = "<span class='sunDown'><i class='fa fa-moon-o' aria-hidden='true'></i> Sunset Today: " + sunset + '</span>';
 
 			$("#weather").append(response4);
 			$("#weather").append(response5);

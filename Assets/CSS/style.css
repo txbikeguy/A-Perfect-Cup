@@ -104,9 +104,49 @@ input[type=text].valid:not(.browser-default) {
   height:100%;
   width:100%;
 }
+
 /* Weather */
 .weatherTitle {
-  font-size: 100px;
+  text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
+  font-size: 80px;
+  color:#00a098;
+  float:left;
+}
+.weatherLocation {
+  float:left;
+  margin: 10px 0 0 50px;
+}
+.weatherLocation h5 {
+  font-size:24px;
+  margin:0 0 0 50px;
+}
+.latLong {
+  font-size:14px;
+  display:block;
+}
+.weatherInfo {
+  float:left;
+  margin:-20px 0 0 50px;
+}
+.weatherInfo h5 {
+  font-size:30px;
+  font-weight:bold;
+}
+.highTemperature {
+  display:block;
+  margin-top:15px;
+}
+.sunUp {
+  display:block;
+  float:left;
+  margin:15px 20px 0 0;
+}
+.sunDown {
+  display:block;
+  float:left;
+  margin:15px 0 0 0;
+}
+.fa-sun-o, .fa-moon-o {
   color:#00a098;
 }
 
@@ -252,6 +292,17 @@ input[type=text].valid:not(.browser-default) {
   i.right {
     margin:0px;
   }
+  
+  /* Weather */
+  .weatherLocation {
+    margin-bottom:15px;
+  }
+  .weatherInfo {
+    border-top:1px solid #00a098;
+    margin:0;
+    width:100%;
+  }
+
   /* Results */
   .row #resultsContainer.col.s12 {
     width:94%;
