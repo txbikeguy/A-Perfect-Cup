@@ -155,9 +155,9 @@ $(document).ready(function() {
       var sv = snapshot.val();
 
       // Console.loging the last user's data
-      console.log(sv.name);
-      console.log(sv.email);
-      console.log(sv.validate);
+      // console.log(sv.name);
+      // console.log(sv.email);
+      // console.log(sv.validate);
 
       // Handle the errors
     }, function(errorObject) {

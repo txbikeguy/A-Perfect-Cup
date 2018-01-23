@@ -31,10 +31,10 @@ function getWeather(latitude,longitude) {
 			currWeather['highTemp']			= Math.round(data.main.temp_max);			// today's high temp
 			currWeather['lowTemp']			= Math.round(data.main.temp_min);			// today's low temp
 			currWeather['sunrise']			= data.sys.sunrise;
-			currWeather['senset']			= data.sys.sunset;
+			currWeather['sunset']			= data.sys.sunset;
 			
 			currWeather['description']		= data.weather[0].description;				// short text description (ie. rain, sunny, etc.)
-			currWeather['icon']				= "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
+			currWeather['icon']				= "https://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
 			currWeather['windSpeed']		= Math.round(data.wind.speed);				// wind speed
 			
 			var response 		= "It is currently "+currWeather['currTemp']+"\xB0 and "+currWeather['description'];
@@ -56,8 +56,8 @@ function getWeather(latitude,longitude) {
 			$("#icon").append(response3);
 			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
 
-			var sunrise = moment.unix(currWeather['sunrise']).format('hh:mm A');
-			var sunset = moment.unix(currWeather['sunset']).format('hh:mm A');
+			var sunrise = moment.unix(currWeather['sunrise']).format('h:mm A');
+			var sunset = moment.unix(currWeather['sunset']).format('h:mm A');
 
 			var response4 = "<br><br>Sunrise Today: " + sunrise;
 			var response5 = "<br>Sunset Today: " + sunset;
@@ -65,7 +65,7 @@ function getWeather(latitude,longitude) {
 			$("#weather").append(response4);
 			$("#weather").append(response5);
 
-			console.log(data);												// log weather data for reference (json format) 
+			//console.log(data);												// log weather data for reference (json format) 
 		});
 	} else {
 		return false;														// respond w/error if no address entered
