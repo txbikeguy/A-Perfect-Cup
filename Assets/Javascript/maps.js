@@ -143,7 +143,7 @@ var map, infoWindow;
             //console.log(placeIds);
           }
         }
-      };
+      }; 
       function createMarker(place) {
         console.log(place);
         var placeLoc = place.geometry.location;
