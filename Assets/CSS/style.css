@@ -109,23 +109,20 @@ input[type=text].valid:not(.browser-default) {
 .weatherTitle {
   text-shadow: 2px 2px 5px rgba(107, 37, 4, 0.5);
   font-size: 80px;
-  color:#00a098;
-  float:left;
+  color:#00a098;s
 }
 .weatherLocation {
-  float:left;
   margin: 10px 0 0 50px;
 }
 .weatherLocation h5 {
   font-size:24px;
-  margin:0 0 0 50px;
+  margin:0px 0 0 50px;
 }
 .latLong {
   font-size:14px;
   display:block;
 }
 .weatherInfo {
-  float:left;
   margin:-20px 0 0 50px;
 }
 .weatherInfo h5 {
@@ -252,6 +249,12 @@ input[type=text].valid:not(.browser-default) {
   margin: 0 10px;
 }
 
+/* About Page */
+#feedbackContainer h5 {
+  line-height:1.4;
+  margin:30px 0 10px 0;
+}
+
 /* Footer */
 .page-footer {
   background-color:#00605b;
@@ -294,6 +297,9 @@ input[type=text].valid:not(.browser-default) {
   }
   
   /* Weather */
+  .weatherTitle {
+    font-size: 60px;
+  }
   .weatherLocation {
     margin-bottom:15px;
   }
@@ -334,6 +340,10 @@ input[type=text].valid:not(.browser-default) {
     font-size:50px;
     top:50px;
     left:37%;
+  }
+  /* Weather */
+  .weatherTitle {
+    font-size: 60px;
   }
 }
 
