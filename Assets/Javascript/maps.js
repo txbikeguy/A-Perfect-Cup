@@ -145,7 +145,18 @@ var map, infoWindow;
           position: place.geometry.location
         });
 
+<<<<<<< Updated upstream
         $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='placeRating'>Rating: " + place.rating + " Stars</p></div>")
+=======
+        if (place.opening_hours.open_now = true) {
+          var openNow = "Open Now: Yes";
+        } 
+        else {
+          var openNow = "Open Now: No"
+        };
+
+        $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='ratingOpenNow'>Rating: " + place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>")
+>>>>>>> Stashed changes
 
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
@@ -153,8 +164,13 @@ var map, infoWindow;
         });
         google.maps.event.addListener(marker, 'click', function() {
               infoWindow.setContent("<div><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
+<<<<<<< Updated upstream
                 place.vicinity + "</a></p><p class='placeRating'>" +
                 place.rating + " Stars" + "</p></div>");
+=======
+                place.vicinity + "</a></p><p class='ratingOpenNow'>" +
+                place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>");
+>>>>>>> Stashed changes
               infoWindow.open(map, this);
             });
       };

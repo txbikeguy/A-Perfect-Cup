@@ -215,7 +215,11 @@ input[type=text].valid:not(.browser-default) {
   float:right;
 }
 
+<<<<<<< Updated upstream
 /* Results Compiled */
+=======
+/* Compiled Results */
+>>>>>>> Stashed changes
 #places {
   margin:0 0 20px 0;
 }
@@ -410,14 +414,14 @@ p.address a:hover {
     height:160px;
   }
   .resultsTitle1 {
-    font-size:200px;
-    top:-70px;
-    left:27%;
+    font-size:160px;
+    top:-50px;
+    left:30%;
   }
   .resultsTitle2 {
-    font-size:70px;
+    font-size:60px;
     top:70px;
-    left:21%;
+    left:23%;
   }
 
 }
