@@ -215,6 +215,25 @@ input[type=text].valid:not(.browser-default) {
   float:right;
 }
 
+/* Results Compiled */
+#places {
+  margin:0 0 20px 0;
+}
+h5.placeName {
+  font-size:20px;
+  font-weight:bold;
+}
+p.address {
+  font-size:16px;
+  margin:7px 0;
+}
+p.address a {
+  color:#00a098;
+}
+p.address a:hover {
+  font-weight:bold;
+}
+
 /* Feedback Page */
 #feedbackTitle {
   border-bottom:2px solid #00a098;
