@@ -79,7 +79,7 @@ searchData.ref().on("value", function(snapshot) {
 
 
 //Google Maps API
-
+var placeIds;
 var map, infoWindow;
 
       function initMap() {
@@ -104,8 +104,12 @@ var map, infoWindow;
             marker.setPosition(pos);
             infoWindow.open(map);
             map.setCenter(pos);
+            var request = {
+              placeId: 'placeIds'
+            };
             
               var service = new google.maps.places.PlacesService(map);
+              service.getDetails(request, callback);
               service.nearbySearch({
                 rankBy: google.maps.places.RankBy.DISTANCE,
                 keyword: "coffee shop",
@@ -131,23 +135,23 @@ var map, infoWindow;
     };
 
       function callback(results, status) {
+        var placeIds = [];
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
+            placeIds.push(results[i].id);
             createMarker(results[i]);
+            //console.log(placeIds);
           }
         }
       };
       function createMarker(place) {
-        //console.log(place);
+        console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
         });
 
-<<<<<<< Updated upstream
-        $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='placeRating'>Rating: " + place.rating + " Stars</p></div>")
-=======
         if (place.opening_hours.open_now = true) {
           var openNow = "Open Now: Yes";
         } 
@@ -156,7 +160,6 @@ var map, infoWindow;
         };
 
         $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='ratingOpenNow'>Rating: " + place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>")
->>>>>>> Stashed changes
 
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
@@ -164,13 +167,12 @@ var map, infoWindow;
         });
         google.maps.event.addListener(marker, 'click', function() {
               infoWindow.setContent("<div><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
-<<<<<<< Updated upstream
-                place.vicinity + "</a></p><p class='placeRating'>" +
-                place.rating + " Stars" + "</p></div>");
-=======
                 place.vicinity + "</a></p><p class='ratingOpenNow'>" +
                 place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>");
->>>>>>> Stashed changes
               infoWindow.open(map, this);
             });
       };
+
+      
+
+      
