@@ -79,7 +79,6 @@ searchData.ref().on("value", function(snapshot) {
 
 
 //Google Maps API
-var placeIds;
 var map, infoWindow;
 
       function initMap() {
@@ -98,7 +97,7 @@ var map, infoWindow;
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 44.9778, lng: -93.2650},
-                zoom: 15
+                zoom: 13
               });
 
             marker.setPosition(pos);
@@ -109,7 +108,6 @@ var map, infoWindow;
             };
             
               var service = new google.maps.places.PlacesService(map);
-              service.getDetails(request, callback);
               service.nearbySearch({
                 rankBy: google.maps.places.RankBy.DISTANCE,
                 keyword: "coffee shop",
@@ -135,17 +133,14 @@ var map, infoWindow;
     };
 
       function callback(results, status) {
-        var placeIds = [];
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
-            placeIds.push(results[i].id);
             createMarker(results[i]);
-            //console.log(placeIds);
           }
         }
       }; 
       function createMarker(place) {
-        console.log(place);
+        //console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
@@ -153,10 +148,10 @@ var map, infoWindow;
         });
 
         if (place.opening_hours.open_now = true) {
-          var openNow = "Open Now: Yes";
+          var openNow = "Currently Open";
         } 
         else {
-          var openNow = "Open Now: No"
+          var openNow = "Currently Closed"
         };
 
         $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='ratingOpenNow'>Rating: " + place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>")
