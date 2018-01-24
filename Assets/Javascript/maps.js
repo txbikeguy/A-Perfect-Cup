@@ -166,9 +166,11 @@ var map, infoWindow;
           infoWindow.open(map, this);
         });
         google.maps.event.addListener(marker, 'click', function() {
+
               infoWindow.setContent("<div><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
                 place.vicinity + "</a></p><p class='ratingOpenNow'>" +
                 place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>");
+
               infoWindow.open(map, this);
             });
       };
