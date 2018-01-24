@@ -79,7 +79,7 @@ searchData.ref().on("value", function(snapshot) {
 
 
 //Google Maps API
-
+var placeIds;
 var map, infoWindow;
 
       function initMap() {
@@ -104,8 +104,12 @@ var map, infoWindow;
             marker.setPosition(pos);
             infoWindow.open(map);
             map.setCenter(pos);
+            var request = {
+              placeId: 'placeIds'
+            };
             
               var service = new google.maps.places.PlacesService(map);
+              service.getDetails(request, callback);
               service.nearbySearch({
                 rankBy: google.maps.places.RankBy.DISTANCE,
                 keyword: "coffee shop",
@@ -131,21 +135,31 @@ var map, infoWindow;
     };
 
       function callback(results, status) {
+        var placeIds = [];
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
+            placeIds.push(results[i].id);
             createMarker(results[i]);
+            //console.log(placeIds);
           }
         }
       };
       function createMarker(place) {
-        //console.log(place);
+        console.log(place);
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
         });
 
-        $("#result").append("<div id='places'><h5><strong>" + place.name + "</strong></h5><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars</div><br><hr>")
+        if (place.opening_hours.open_now = true) {
+          var openNow = "Open Now: Yes";
+        } 
+        else {
+          var openNow = "Open Now: No"
+        };
+
+        $("#result").append("<div id='places'><h5><strong>" + place.name + "</strong></h5><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars<br><p>" + openNow + "</div><br><hr>")
 
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
@@ -154,7 +168,7 @@ var map, infoWindow;
         google.maps.event.addListener(marker, 'click', function() {
               infoWindow.setContent("<div><h5><strong>" + place.name + "</strong></h5><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
                 place.vicinity + "</a><br><strong>" +
-                place.rating + " Stars" + "</strong></div>");
+                place.rating + " Stars" + "</strong><br><p>" + openNow + "</div>");
               infoWindow.open(map, this);
             });
       };
