@@ -97,7 +97,7 @@ var map, infoWindow;
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 44.9778, lng: -93.2650},
-                zoom: 15
+                zoom: 13
               });
 
             marker.setPosition(pos);
