@@ -143,7 +143,7 @@ var map, infoWindow;
             //console.log(placeIds);
           }
         }
-      };
+      }; 
       function createMarker(place) {
         console.log(place);
         var placeLoc = place.geometry.location;
@@ -159,16 +159,18 @@ var map, infoWindow;
           var openNow = "Open Now: No"
         };
 
-        $("#result").append("<div id='places'><h5><strong>" + place.name + "</strong></h5><br><p><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a>" + "<br><p>Rating: " + place.rating + " Stars<br><p>" + openNow + "</div><br><hr>")
+        $("#result").append("<div id='places'><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" + place.vicinity + "</a></p>" + "<p class='ratingOpenNow'>Rating: " + place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>")
 
         google.maps.event.addListener(marker, 'click', function() {
           infoWindow.setContent(place.name);
           infoWindow.open(map, this);
         });
         google.maps.event.addListener(marker, 'click', function() {
-              infoWindow.setContent("<div><h5><strong>" + place.name + "</strong></h5><br><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
-                place.vicinity + "</a><br><strong>" +
-                place.rating + " Stars" + "</strong><br><p>" + openNow + "</div>");
+
+              infoWindow.setContent("<div><h5 class='placeName'>" + place.name + "</h5><p class='address'><a href='https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=coffee&destination_place_id=" + place.place_id + "&dir_action=navigate' target='_blank'>" +
+                place.vicinity + "</a></p><p class='ratingOpenNow'>" +
+                place.rating + " Stars&nbsp;&nbsp;|&nbsp;&nbsp;" + openNow + "</p></div>");
+
               infoWindow.open(map, this);
             });
       };

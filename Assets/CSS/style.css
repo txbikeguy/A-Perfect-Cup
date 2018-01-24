@@ -215,6 +215,25 @@ input[type=text].valid:not(.browser-default) {
   float:right;
 }
 
+/* Compiled Results */
+#places {
+  margin:0 0 20px 0;
+}
+h5.placeName {
+  font-size:20px;
+  font-weight:bold;
+}
+p.address {
+  font-size:16px;
+  margin:7px 0;
+}
+p.address a {
+  color:#00a098;
+}
+p.address a:hover {
+  font-weight:bold;
+}
+
 /* Feedback Page */
 #feedbackTitle {
   border-bottom:2px solid #00a098;
@@ -391,14 +410,13 @@ input[type=text].valid:not(.browser-default) {
     height:160px;
   }
   .resultsTitle1 {
-    font-size:200px;
-    top:-70px;
-    left:27%;
+    font-size:160px;
+    top:-50px;
+    left:30%;
   }
   .resultsTitle2 {
-    font-size:70px;
+    font-size:60px;
     top:70px;
-    left:21%;
+    left:23%;
   }
-
 }
