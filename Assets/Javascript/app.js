@@ -2,6 +2,9 @@ $(document).ready(function() {
 	// Drop down menu
       $('select').material_select();
 
+  // Feedback popup hide
+  $("#inter").hide(); 
+
   // Feedback email validation 
 
   function validateEmail(email) {
