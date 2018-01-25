@@ -30,7 +30,6 @@ function getWeather(latitude,longitude) {
 			currWeather['currTemp']			= Math.round(data.main.temp);				// current temperature
 			currWeather['highTemp']			= Math.round(data.main.temp_max);			// today's high temp
 			currWeather['lowTemp']			= Math.round(data.main.temp_min);			// today's low temp
-<<<<<<< Updated upstream
 			currWeather['sunrise']			= data.sys.sunrise;
 			currWeather['sunset']			= data.sys.sunset;
 			
@@ -38,7 +37,6 @@ function getWeather(latitude,longitude) {
 			currWeather['icon']				= "https://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
 			currWeather['windSpeed']		= Math.round(data.wind.speed);				// wind speed
 			
-=======
 			
 			currWeather['description']		= data.weather[0].description;				// short text description (ie. rain, sunny, etc.)
 			currWeather['icon']				= "http://openweathermap.org/img/w/"+data.weather[0].icon+".png";	// 50x50 pixel png icon
@@ -53,7 +51,6 @@ function getWeather(latitude,longitude) {
 			currWeather['windDirection']	= windNames[currWeather['windCompass']];	// convert degrees and find wind direction name
 			
 			
->>>>>>> Stashed changes
 			var response 		= "It is currently "+currWeather['currTemp']+"\xB0 and "+currWeather['description'];
 			
 			if(currWeather['windSpeed']>0) {											// if there's wind, add a wind description to the response
@@ -64,18 +61,14 @@ function getWeather(latitude,longitude) {
 					response		+= " miles per hour";
 				}
 			}
-<<<<<<< Updated upstream
 			var response2 = "<span class='highTemperature'>The high for today is " + currWeather['highTemp'] + "\xB0" + '</span>'; 
-=======
 			var response2 = "<br><br>The high for today is " + currWeather['highTemp'] + "\xB0 and the low tonight will be " + currWeather['lowTemp'] + "\xB0"; 
->>>>>>> Stashed changes
 			var response3 = "<img src='" + currWeather['icon'] + "'>";
 
 			
 			$("#weather").html(response);									// write current weather to textarea
 			$("#weather").append(response2);
 			$("#icon").append(response3);
-<<<<<<< Updated upstream
 			$("#location-lat-long").html("<strong>" + data.name + "</strong><span class='latLong'>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon + "</span>")
 
 			var sunrise = moment.unix(currWeather['sunrise']).format('h:mm A');
@@ -88,9 +81,7 @@ function getWeather(latitude,longitude) {
 			$("#weather").append(response5);
 
 			//console.log(data);												// log weather data for reference (json format) 
-=======
 			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
->>>>>>> Stashed changes
 		});
 	} else {
 		return false;														// respond w/error if no address entered
