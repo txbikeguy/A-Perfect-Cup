@@ -55,6 +55,7 @@ nav {
   display:none;
 }
 
+
 /* Search Form */
 .row .searchForm {
   margin:20px 0 0 0;
@@ -266,6 +267,10 @@ p.address a:hover {
 }
 #us .chip {
   margin: 0 10px;
+}
+
+#inter {
+  display: none;
 }
 
 /* About Page */
