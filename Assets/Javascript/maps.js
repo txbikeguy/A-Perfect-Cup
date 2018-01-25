@@ -79,6 +79,11 @@
 
 
 //Google Maps API
+$(".showHide").on("click", function() {
+       console.log(showMoreResults);
+       showMore(showMoreResults);
+     });
+
 var map, infoWindow;
 
       function initMap() {
@@ -133,12 +138,22 @@ var map, infoWindow;
     };
 
       function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
-      }; 
+       showMoreResults = results;
+       var placeIds = [];
+       if (status === google.maps.places.PlacesServiceStatus.OK) {
+         for (var i = 0; i < 4; i++) {
+           placeIds.push(results[i].id);
+           createMarker(results[i]);
+           //console.log(placeIds);
+         }
+       }
+     };
+     function showMore(results) {
+       console.log('here');
+       for (var i=4; i <results.length; i++) {
+         createMarker(results[i]);
+       }
+     }
       function createMarker(place) {
         //console.log(place);
         var placeLoc = place.geometry.location;
