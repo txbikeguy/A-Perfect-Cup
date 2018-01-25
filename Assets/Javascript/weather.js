@@ -62,7 +62,7 @@ function getWeather(latitude,longitude) {
 				}
 			}
 			var response2 = "<span class='highTemperature'>The high for today is " + currWeather['highTemp'] + "\xB0" + '</span>'; 
-			var response2 = "<br><br>The high for today is " + currWeather['highTemp'] + "\xB0 and the low tonight will be " + currWeather['lowTemp'] + "\xB0"; 
+			var response2 = "<span class='highTemperature'>The high for today is " + currWeather['highTemp'] + "\xB0 and the low tonight will be " + currWeather['lowTemp'] + "\xB0"; 
 			var response3 = "<img src='" + currWeather['icon'] + "'>";
 
 			
@@ -81,7 +81,7 @@ function getWeather(latitude,longitude) {
 			$("#weather").append(response5);
 
 			//console.log(data);												// log weather data for reference (json format) 
-			$("#location-lat-long").html("<strong>" + data.name + "</strong><br><br>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon)
+			$("#location-lat-long").html("<strong>" + data.name + "</strong><span class='latLong'>Latitude: " + data.coord.lat + " / Longitude: " + data.coord.lon + "</span>")
 		});
 	} else {
 		return false;														// respond w/error if no address entered
