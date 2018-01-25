@@ -49,6 +49,8 @@ $(document).ready(function() {
     // Capture Button Click
     $("#submit").on("click", function(event) {
       event.preventDefault();
+    $("#inter").show();
+
 
       // Grabbed values from text boxes
       name = $("#name").val().trim();
