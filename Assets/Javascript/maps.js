@@ -80,7 +80,7 @@
 
 //Google Maps API
 $(".showHide").on("click", function() {
-       console.log(showMoreResults);
+       //console.log(showMoreResults);
        showMore(showMoreResults);
      });
 
@@ -149,7 +149,7 @@ var map, infoWindow;
        }
      };
      function showMore(results) {
-       console.log('here');
+       //console.log('here');
        for (var i=4; i <results.length; i++) {
          createMarker(results[i]);
        }
