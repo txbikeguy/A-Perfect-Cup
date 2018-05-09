@@ -2,7 +2,7 @@
 
 An app built to help you find the nearest coffee shop to your current location, and help plan your way to get there based on the current weather. 
 
-Created as the second group project for the First Cohort of the University of Minnesota's Coding Bootcamp.
+Created as the very first group project for the First Cohort of the University of Minnesota's Coding Bootcamp.
 
 [A Perfect Cup](https://txbikeguy.github.io/A-Perfect-Cup/)
 
