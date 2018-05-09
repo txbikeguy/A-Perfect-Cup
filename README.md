@@ -1,86 +1,29 @@
-# GroupProject1
+# A Perfect Cup
 
-As of Wed, Jan. 10, 2018
+An app built to help you find the nearest coffee shop to your current location, and help plan your way to get there based on the current weather. 
 
--project title-
-"Find Me A Cup" ???
+Created as the second group project for the First Cohort of the University of Minnesota's Coding Bootcamp.
 
--team members-
-Emren
-Tonye
-Kadiro
-Ben
+[A Perfect Cup](https://txbikeguy.github.io/A-Perfect-Cup/)
 
--project description-
-Helps you find coffee shops near where you are and then gives you information pulled from multiple 
-review sites. Also shows a map of shops in the nearby area. 
+## Built With
 
--sketch of final product-
+* [Materialize](https://materializecss.com/) - CSS Framework for Styling
+* [Google Maps API](http://tiny.cc/omchty) - App map may become deprecated with Google's new pay scale being implemented in July 2018
+* [Open Weather API](https://openweathermap.org/api) - For bringing in real time weather data based on geoloacation
+* [Sequelize](http://sequelize.readthedocs.io/en/v3/) - ORM for Node.js
+* [Firebase](https://firebase.google.com/) - Database Used
 
--APIs to be used-
-google maps
-yelp
-open weather maps
+## Authors
 
--rough breakdown of tasks-
-tonye - html and framework layout
-ben - basic api calls
-emren - firebase
-kadiro - framework research
+* **Ben Cross** - [LinkedIn](https://www.linkedin.com/in/bencross323/) - Initial concept, Google Map & Open Weather integration
+* **Tonye Praught** - [GitHub](https://github.com/tpraught) - Materialize Styling and frontend
+* **Emren Ingvoldstad** - [GitHub](https://github.com/EmrenIng) - Firebase integration
+* **Kadiro Elemo** - [LinkedIn](https://www.linkedin.com/in/kadiro-elemo-a28376152/)
 
---January 13, 2018--
+## Acknowledgments
 
-Logo/Layout creation - Tonye
-
-HTML/CSS - responsive utilizing Materialize - Emren
-	- Various pages (index.html, feedback.html, about.html)
-	- Main colors: 
-	  - Brown: #6b2504
-	  - Light Brown: #e1d3cd
-	  - Teal: #00a098
-	  - Dark Teal: #00605b
-	- Fonts:
-	  - Roboto
-	  - Rouge Script
-
-Search form 
- - Creation - Tonye
- - Connection to firebase - Emren
-
-Feeback form creation, validation and connect to firebase - Kadiro
-
-Content creation for the About page - Emren
-
-Connecting the Google and Yelp APIs
- - Google API - Ben
- - Yelp API - Tonye
-
-Integrating AJAX - Ben/Tonye
-
-Modals - error message popup after form validation (https://v4-alpha.getbootstrap.com/components/modal/) - Kadiro
-
-Library or technology
- - Font Awesome for icons (http://fontawesome.io/icons/)
- - Foundation/Abide for form validation (https://foundation.zurb.com/sites/docs/abide.html)
- - Semantic UI for multi select in dropdown (https://semantic-ui.com/modules/dropdown.html)
-
-CSS framework - Materialize (http://materializecss.com/)
-
-Repeating elements
- - Results
- 	- Business Name - pulled from Google
- 	- Miles away from location - pulled from Google
- 	- Hours of operation - pulled from Google
- 	- Rating - pulled from Yelp
- 	- Amenities available - pulle from Yelp
- 	  - Open Now
- 	  - Outdoor seating
- 	  - Good for groups
- 	  - Wheelchair Accessible
- 	  - Alcohol
- 	  - Food available
- 	  - Parking
- 	  - WiFi
- 	- Reviews - linked out to Google & Yelp reviews
-
-Show/hide of the reslts - jQuery Toggle - Tonye
+Our thanks to:
+* **Amanda Hanlon** - *Instructor* - [LinkedIn](https://www.linkedin.com/in/amanda-hanlon-a2236731/)
+* **Jeff Birkholz** - *TA* - [LinkedIn](https://www.linkedin.com/in/jeffrey-jeff-birkholz-2632302a/)
+* **Jake Jacobs-Smith** - *TA* - [LinkedIn](https://www.linkedin.com/in/jakejacobssmith/)
